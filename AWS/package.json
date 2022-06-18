@@ -1,0 +1,13 @@
+{
+    "name": "agregar-datos-app",
+    "version": "1.0.0",
+    "description": "LCF19 - Guarda los planes, rankings, usuarios, datos de oportunidades de criptos, IDOs e ICOs, Links de Graficos de Proyecciones en AWS RDS desde Google Spreadsheet.",
+    "keywords": [],
+    "author": "Manuel Pereira",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "googleapis": "^91.0.0",
+        "mysql2": "^2.3.0"
+    }
+}

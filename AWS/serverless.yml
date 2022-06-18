@@ -1,0 +1,40 @@
+# serverless.yml
+
+service: agregar-datos-app-database
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-2
+  environment:
+    DB_HOST: ${env:DB_HOST}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_PORT: ${env:DB_PORT}
+    DB_DATABASE: ${env:DB_DATABASE}
+    SPREADSHEET_ID: ${env:SPREADSHEET_ID}
+    USERS_TABLE: ${env:USERS_TABLE}
+    PLANS_TABLE: ${env:PLANS_TABLE}
+    IDOS_ICOS_TABLE: ${env:IDOS_ICOS_TABLE}
+    OPORTS_CRIPTO_TABLE: ${env:OPORTS_CRIPTO_TABLE}
+    CHARTS_PROY_TABLE: ${env:CHARTS_PROY_TABLE}
+    RANKINGS_TABLE: ${env:RANKINGS_TABLE}
+    USUARIOS_HOJA: ${env:USUARIOS_HOJA}
+    PLANES_HOJA: ${env:PLANES_HOJA}
+    OPORTS_CRIPTO_HOJA: ${env:OPORTS_CRIPTO_HOJA}
+    IDOS_ICOS_HOJA: ${env:IDOS_ICOS_HOJA}
+    CHARTS_PROY_HOJA: ${env:CHARTS_PROY_HOJA}
+    RANKINGS_HOJA: ${env:RANKINGS_HOJA}
+    
+
+functions:
+  agregarDatos:
+    handler: index.handler
+    memorySize: 1024
+    description: LCF19 - Guarda los planes, rankings, usuarios, datos de oportunidades de criptos, IDOs e ICOs, Links de Graficos de Proyecciones en AWS RDS desde Google Spreadsheet.
+    timeout: 720
+    maximumRetryAttempts: 0
+    events:
+      - eventBridge:
+          schedule: cron(0 17,23 ? * * *)
