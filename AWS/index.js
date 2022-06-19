@@ -1,5 +1,11 @@
 require('dotenv').config()
 const mysql = require('mysql2');
+const Usuario = require("./usuario");
+const Plan = require("./plan");
+const OportCripto = require("./oportCripto");
+const IdoIco = require("./idosIcos");
+const ChartProyeccion = require("./chartProy");
+const Ranking = require("./ranking");
 const { database } = require('./keys');
 const { google } = require('googleapis');
 const auth = new google.auth.GoogleAuth({
