@@ -356,7 +356,7 @@ module.exports.handler = async function (event) {
                 var ultimaSenalMACDMP = recogerRankings[i][41]? recogerRankings[i][41].toString(): "";
                 var fechaUltimaSenalAlligatorMP = recogerRankings[i][42]? recogerRankings[i][42].toString(): "";
                 var ultimaSenalAlligatorMP = recogerRankings[i][43]? recogerRankings[i][43].toString(): "";
-                var tendenciaEMAMPNum = recogerRankings[i][44]? parseFloat(recogerRankings[i][44]): 0;
+                var tendenciaEMAMPNum = recogerRankings[i][44]? recogerRankings[i][44] : 0;
                 var tendenciaMACDMPNum = recogerRankings[i][45]? parseFloat(recogerRankings[i][45]): 0;
                 var tendenciaAlligatorMPNum = recogerRankings[i][46]? parseFloat(recogerRankings[i][46]): 0;
                 var fuerzaMP = recogerRankings[i][47]? parseFloat(recogerRankings[i][47]): 0;
@@ -442,7 +442,7 @@ module.exports.handler = async function (event) {
                 );
                 rankingName.push(rankings);
             }
-            await agregarDatos(planes, process.env.PLANS_TABLE);
+            await agregarPlanes(planes, process.env.PLANS_TABLE);
             await agregarDatos(usuarios, process.env.USERS_TABLE);
             await agregarDatos(oportsCripto, process.env.OPORTS_CRIPTO_TABLE);
             await agregarDatos(idosIcos, process.env.IDOS_ICOS_TABLE);
@@ -453,7 +453,7 @@ module.exports.handler = async function (event) {
             console.error(err);
         }
     
-        async function agregarDatos(datos, table) {
+        async function agregarPlanes(datos, table) {
             if (!datos || datos[0][0]=="#N/A") {
                 console.log("No se encontraron datos.");
                 return;
@@ -461,6 +461,29 @@ module.exports.handler = async function (event) {
                 let sql = `INSERT INTO ${table} SET ? ON DUPLICATE KEY UPDATE ?`;
                 for (let n = 0; n < datos.length; n++) {
                     conexion.query(sql, [datos[n], datos[n]], function (err, result) {
+                        if (err) throw err;
+                    });    
+                }
+            }
+        };
+        async function agregarDatos(datos, table) {
+            if (!datos || datos[0][0]=="#N/A") {
+                console.log("No se encontraron datos.");
+                return;
+            } else {
+                let sql1 = `DELETE FROM ${table}`;
+                let sql2 = `ALTER TABLE ${table} AUTO_INCREMENT = 1`;
+                conexion.query(sql1, function (err, result) {
+                    if (err) throw err;
+                    return;
+                });
+                conexion.query(sql2, function (err, result) {
+                    if (err) throw err;
+                    return;
+                });
+                let sql3 = `INSERT INTO ${table} SET ?`;
+                for (let n = 0; n < datos.length; n++) {
+                    conexion.query(sql3, [datos[n]], function (err, result) {
                         if (err) throw err;
                     });    
                 }
