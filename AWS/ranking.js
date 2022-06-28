@@ -1,7 +1,7 @@
 module.exports = class Ranking {
     constructor(
+        id,
         idRango,
-        secuencia,
         coinId,
         tendenciaEMALP,
         tendenciaMACDLP,
@@ -29,6 +29,7 @@ module.exports = class Ranking {
         senalRSILPNum,
         senalAlligatorLPNum,
         calificacionIndicadoresTecnicosLP,
+        calificacionTotalLP,
         tendenciaEMAMP,
         tendenciaMACDMP,
         tendenciaAlligatorMP,
@@ -57,15 +58,14 @@ module.exports = class Ranking {
         calificacionIndicadoresTecnicosMP,
         calificacionGlobalTendencia,
         calificacionGlobalIndicadoresTecnicos,
-        calificacionProyeccionLP,
-        calificacionProyeccionMP,
-        calificacionSmartbandsLP,
-        calificacionSmartbandsMP,
-        calificacionGlobalProyecciones,
-        calificacionGlobalGeneral
+        calificacionTotalMP,
+        realProyLP,
+        forecastProyLP,
+        pesimistaProyLP,
+        optimistaProyLP
     ) {
+        this.id = id;
         this.idRango = idRango;
-        this.secuencia = secuencia;
         this.coinId = coinId;
         this.tendenciaEMALP = tendenciaEMALP;
         this.tendenciaMACDLP = tendenciaMACDLP;
@@ -93,6 +93,7 @@ module.exports = class Ranking {
         this.senalRSILPNum = senalRSILPNum;
         this.senalAlligatorLPNum = senalAlligatorLPNum;
         this.calificacionIndicadoresTecnicosLP = calificacionIndicadoresTecnicosLP;
+        this.calificacionTotalLP = calificacionTotalLP;
         this.tendenciaEMAMP = tendenciaEMAMP;
         this.tendenciaMACDMP = tendenciaMACDMP;
         this.tendenciaAlligatorMP = tendenciaAlligatorMP;
@@ -121,17 +122,16 @@ module.exports = class Ranking {
         this.calificacionIndicadoresTecnicosMP = calificacionIndicadoresTecnicosMP;
         this.calificacionGlobalTendencia = calificacionGlobalTendencia;
         this.calificacionGlobalIndicadoresTecnicos = calificacionGlobalIndicadoresTecnicos;
-        this.calificacionProyeccionLP = calificacionProyeccionLP;
-        this.calificacionProyeccionMP = calificacionProyeccionMP;
-        this.calificacionSmartbandsLP = calificacionSmartbandsLP;
-        this.calificacionSmartbandsMP = calificacionSmartbandsMP;
-        this.calificacionGlobalProyecciones = calificacionGlobalProyecciones;
-        this.calificacionGlobalGeneral = calificacionGlobalGeneral;
+        this.calificacionTotalMP = calificacionTotalMP;
+        this.realProyLP = realProyLP;
+        this.forecastProyLP = forecastProyLP;
+        this.pesimistaProyLP = pesimistaProyLP;
+        this.optimistaProyLP = optimistaProyLP;
     }
     push(rankings) {
         rankings.push({
+            id: this.id,
             id_rango: this.idRango,
-            secuencia: this.secuencia,
             coin_id: this.coinId,
             tendencia_ema_lp: this.tendenciaEMALP,
             tendencia_macd_lp: this.tendenciaMACDLP,
@@ -159,6 +159,7 @@ module.exports = class Ranking {
             senal_rsi_lp_num: this.senalRSILPNum,
             senal_alligator_lp_num: this.senalAlligatorLPNum,
             calificacion_indicadores_tecnicos_lp: this.calificacionIndicadoresTecnicosLP,
+            calificacion_total_lp: this.calificacionTotalLP,
             tendencia_ema_mp: this.tendenciaEMAMP,
             tendencia_macd_mp: this.tendenciaMACDMP,
             tendencia_alligator_mp: this.tendenciaAlligatorMP,
@@ -187,12 +188,11 @@ module.exports = class Ranking {
             calificacion_indicadores_tecnicos_mp: this.calificacionIndicadoresTecnicosMP,
             calificacion_global_tendencia: this.calificacionGlobalTendencia,
             calificacion_global_indicadores_tecnicos: this.calificacionGlobalIndicadoresTecnicos,
-            calificacion_proyeccion_lp: this.calificacionProyeccionLP,
-            calificacion_proyeccion_mp: this.calificacionProyeccionMP,
-            calificacion_smartbands_lp: this.calificacionSmartbandsLP,
-            calificacion_smartbands_mp: this.calificacionSmartbandsMP,
-            calificacion_global_proyecciones: this.calificacionGlobalProyecciones,
-            calificacion_global_general: this.calificacionGlobalGeneral
+            calificacion_total_mp: this.calificacionTotalMP,
+            real_proyeccion_lp: this.realProyLP,
+            forecast_proyeccion_lp: this.forecastProyLP,
+            pesimista_proyeccion_lp: this.pesimistaProyLP,
+            optimista_proyeccion_lp: this.optimistaProyLP
         })
     }
 };

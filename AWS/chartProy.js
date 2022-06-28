@@ -1,7 +1,7 @@
 module.exports = class ChartProyeccion {
     constructor(
         id,
-        coin,
+        nombre,
         fecha,
         precio,
         proyLP,
@@ -12,7 +12,7 @@ module.exports = class ChartProyeccion {
         rentCP
         ) {
         this.id = id;
-        this.coin = coin;
+        this.nombre = nombre;
         this.fecha = fecha;
         this.precio = precio;
         this.proyLP = proyLP;
@@ -25,7 +25,7 @@ module.exports = class ChartProyeccion {
     push(chartsProy) {
         chartsProy.push({
             id: this.id,
-            coin: this.coin,
+            nombre: this.nombre,
             fecha: this.fecha,
             precio: this.precio,
             proy_lp: this.proyLP,

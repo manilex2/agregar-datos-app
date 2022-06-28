@@ -294,7 +294,7 @@ app.get('/', async function (solicitud, respuesta) {
         }
         for (let i = 0; i < recogerChartsProy.length; i++) {
             let id = [i+1];
-            let coin = recogerChartsProy[i][0]? recogerChartsProy[i][0].toString(): "";
+            let nombre = recogerChartsProy[i][0]? recogerChartsProy[i][0].toString(): "";
             let fecha = recogerChartsProy[i][1]? recogerChartsProy[i][1].toString(): "";
             let precio = recogerChartsProy[i][2]? parseFloat(recogerChartsProy[i][2]): 0;
             let proyLP = recogerChartsProy[i][3]? recogerChartsProy[i][3].toString(): "";
@@ -305,7 +305,7 @@ app.get('/', async function (solicitud, respuesta) {
             let rentCP = recogerChartsProy[i][8]? recogerChartsProy[i][8].toString(): "";
             let chartData = new ChartProyeccion(
                 id,
-                coin,
+                nombre,
                 fecha,
                 precio,
                 proyLP,
@@ -318,72 +318,72 @@ app.get('/', async function (solicitud, respuesta) {
             chartData.push(chartsProy);
         }
         for (let i = 0; i < recogerRankings.length; i++) {
-            let idRango = parseInt(recogerRankings[i][0]);
-            let secuencia = parseInt(recogerRankings[i][1]);
-            let coinId = recogerRankings[i][2].toString();
-            let tendenciaEMALP = recogerRankings[i][3]? recogerRankings[i][3].toString(): "";
-            let tendenciaMACDLP = recogerRankings[i][4]? recogerRankings[i][4].toString(): "";
-            let tendenciaAlligatorLP = recogerRankings[i][5]? recogerRankings[i][5].toString(): "";
-            let fuerzaTendenciaADXLP = recogerRankings[i][6]? recogerRankings[i][6].toString(): "";
-            let continuidadCambioADXLP = recogerRankings[i][7]? recogerRankings[i][7].toString(): "";
-            let senalEMALP = recogerRankings[i][8]? recogerRankings[i][8].toString(): "";
-            let senalMACDLP = recogerRankings[i][9]? recogerRankings[i][9].toString(): "";
-            let senalRSILP = recogerRankings[i][10]? recogerRankings[i][10].toString(): "";
-            let senalAlligatorLP = recogerRankings[i][11]? recogerRankings[i][11].toString(): "";
-            let fechaUltimaSenalEMALP = recogerRankings[i][12]? recogerRankings[i][12].toString(): "";
-            let ultimaSenalEMALP = recogerRankings[i][13]? recogerRankings[i][13].toString(): "";
-            let fechaUltimaSenalMACDLP = recogerRankings[i][14]? recogerRankings[i][14].toString(): "";
-            let ultimaSenalMACDLP = recogerRankings[i][15]? recogerRankings[i][15].toString(): "";
-            let fechaUltimaSenalAlligatorLP = recogerRankings[i][16]? recogerRankings[i][16].toString(): "";
-            let ultimaSenalAlligatorLP = recogerRankings[i][17]? recogerRankings[i][17].toString(): "";
-            let tendenciaEMALPNum = recogerRankings[i][18]? parseFloat(recogerRankings[i][18]): 0;
-            let tendenciaMACDLPNum = recogerRankings[i][19]? parseFloat(recogerRankings[i][19]): 0;
-            let tendenciaAlligatorLPNum = recogerRankings[i][20]? parseFloat(recogerRankings[i][20]): 0;
-            let fuerzaLP = recogerRankings[i][21]? parseFloat(recogerRankings[i][21]): 0;
-            let continuidadLP = recogerRankings[i][22]? parseFloat(recogerRankings[i][22]): 0;
-            let calificacionTendenciaLP = recogerRankings[i][23]? parseInt(recogerRankings[i][23]): 0;
-            let senalEMALPNum = recogerRankings[i][24]? parseFloat(recogerRankings[i][24]): 0;
-            let senalMACDLPNum = recogerRankings[i][25]? parseFloat(recogerRankings[i][25]): 0;
-            let senalRSILPNum = recogerRankings[i][26]? parseFloat(recogerRankings[i][26]): 0;
-            let senalAlligatorLPNum = recogerRankings[i][27]? parseFloat(recogerRankings[i][27]): 0;
-            let calificacionIndicadoresTecnicosLP = recogerRankings[i][28]? parseInt(recogerRankings[i][28]): 0;
-            let tendenciaEMAMP = recogerRankings[i][29]? recogerRankings[i][29].toString(): "";
-            let tendenciaMACDMP = recogerRankings[i][30]? recogerRankings[i][30].toString(): "";
-            let tendenciaAlligatorMP = recogerRankings[i][31]? recogerRankings[i][31].toString(): "";
-            let fuerzaTendenciaADXMP = recogerRankings[i][32]? recogerRankings[i][32].toString(): "";
-            let continuidadCambioADXMP = recogerRankings[i][33]? recogerRankings[i][33].toString(): "";
-            let senalEMAMP = recogerRankings[i][34]? recogerRankings[i][34].toString(): "";
-            let senalMACDMP = recogerRankings[i][35]? recogerRankings[i][35].toString(): "";
-            let senalRSIMP = recogerRankings[i][36]? recogerRankings[i][36].toString(): "";
-            let senalAlligatorMP = recogerRankings[i][37]? recogerRankings[i][37].toString(): "";
-            let fechaUltimaSenalEMAMP = recogerRankings[i][38]? recogerRankings[i][38].toString(): "";
-            let ultimaSenalEMAMP = recogerRankings[i][39]? recogerRankings[i][39].toString(): "";
-            let fechaUltimaSenalMACDMP = recogerRankings[i][40]? recogerRankings[i][40].toString(): "";
-            let ultimaSenalMACDMP = recogerRankings[i][41]? recogerRankings[i][41].toString(): "";
-            let fechaUltimaSenalAlligatorMP = recogerRankings[i][42]? recogerRankings[i][42].toString(): "";
-            let ultimaSenalAlligatorMP = recogerRankings[i][43]? recogerRankings[i][43].toString(): "";
-            let tendenciaEMAMPNum = recogerRankings[i][44]? recogerRankings[i][44] : 0;
-            let tendenciaMACDMPNum = recogerRankings[i][45]? parseFloat(recogerRankings[i][45]): 0;
-            let tendenciaAlligatorMPNum = recogerRankings[i][46]? parseFloat(recogerRankings[i][46]): 0;
-            let fuerzaMP = recogerRankings[i][47]? parseFloat(recogerRankings[i][47]): 0;
-            let continuidadMP = recogerRankings[i][48]? parseFloat(recogerRankings[i][48]): 0;
-            let calificacionTendenciaMP = recogerRankings[i][49]? parseInt(recogerRankings[i][49]): 0;
-            let senalEMAMPNum = recogerRankings[i][50]? parseFloat(recogerRankings[i][50]): 0;
-            let senalMACDMPNum = recogerRankings[i][51]? parseFloat(recogerRankings[i][51]): 0;
-            let senalRSIMPNum = recogerRankings[i][52]? parseFloat(recogerRankings[i][52]): 0;
-            let senalAlligatorMPNum = recogerRankings[i][53]? parseFloat(recogerRankings[i][53]): 0;
-            let calificacionIndicadoresTecnicosMP = recogerRankings[i][54]? parseInt(recogerRankings[i][54]): 0;
-            let calificacionGlobalTendencia = recogerRankings[i][55]? parseInt(recogerRankings[i][55]): 0;
-            let calificacionGlobalIndicadoresTecnicos = recogerRankings[i][56]? parseInt(recogerRankings[i][56]): 0;
-            let calificacionProyeccionLP = recogerRankings[i][57]? parseInt(recogerRankings[i][57]): 0;
-            let calificacionProyeccionMP = recogerRankings[i][58]? parseInt(recogerRankings[i][58]): 0;
-            let calificacionSmartbandsLP = recogerRankings[i][59]? parseInt(recogerRankings[i][59]): 0;
-            let calificacionSmartbandsMP = recogerRankings[i][60]? parseInt(recogerRankings[i][60]): 0;
-            let calificacionGlobalProyecciones = recogerRankings[i][61]? parseInt(recogerRankings[i][61]): 0;
-            let calificacionGlobalGeneral = recogerRankings[i][62]? parseInt(recogerRankings[i][62]): 0;
+            let id = recogerRankings[i][1];
+            let idRango = recogerRankings[i][0];
+            let coinId = recogerRankings[i][2];
+            let tendenciaEMALP = recogerRankings[i][3]? recogerRankings[i][3]: "";
+            let tendenciaMACDLP = recogerRankings[i][4]? recogerRankings[i][4]: "";
+            let tendenciaAlligatorLP = recogerRankings[i][5]? recogerRankings[i][5]: "";
+            let fuerzaTendenciaADXLP = recogerRankings[i][6]? recogerRankings[i][6]: "";
+            let continuidadCambioADXLP = recogerRankings[i][7]? recogerRankings[i][7]: "";
+            let senalEMALP = recogerRankings[i][8]? recogerRankings[i][8]: "";
+            let senalMACDLP = recogerRankings[i][9]? recogerRankings[i][9]: "";
+            let senalRSILP = recogerRankings[i][10]? recogerRankings[i][10]: "";
+            let senalAlligatorLP = recogerRankings[i][11]? recogerRankings[i][11]: "";
+            let fechaUltimaSenalEMALP = recogerRankings[i][12]? recogerRankings[i][12]: "";
+            let ultimaSenalEMALP = recogerRankings[i][13]? recogerRankings[i][13]: "";
+            let fechaUltimaSenalMACDLP = recogerRankings[i][14]? recogerRankings[i][14]: "";
+            let ultimaSenalMACDLP = recogerRankings[i][15]? recogerRankings[i][15]: "";
+            let fechaUltimaSenalAlligatorLP = recogerRankings[i][16]? recogerRankings[i][16]: "";
+            let ultimaSenalAlligatorLP = recogerRankings[i][17]? recogerRankings[i][17]: "";
+            let tendenciaEMALPNum = recogerRankings[i][18]? recogerRankings[i][18]: 0;
+            let tendenciaMACDLPNum = recogerRankings[i][19]? recogerRankings[i][19]: 0;
+            let tendenciaAlligatorLPNum = recogerRankings[i][20]? recogerRankings[i][20]: 0;
+            let fuerzaLP = recogerRankings[i][21]? recogerRankings[i][21]: 0;
+            let continuidadLP = recogerRankings[i][22]? recogerRankings[i][22]: 0;
+            let calificacionTendenciaLP = recogerRankings[i][23]? recogerRankings[i][23]: 0;
+            let senalEMALPNum = recogerRankings[i][24]? recogerRankings[i][24]: 0;
+            let senalMACDLPNum = recogerRankings[i][25]? recogerRankings[i][25]: 0;
+            let senalRSILPNum = recogerRankings[i][26]? recogerRankings[i][26]: 0;
+            let senalAlligatorLPNum = recogerRankings[i][27]? recogerRankings[i][27]: 0;
+            let calificacionIndicadoresTecnicosLP = recogerRankings[i][28]? recogerRankings[i][28]: 0;
+            let calificacionTotalLP = recogerRankings[i][29]? recogerRankings[i][29]: 0;
+            let tendenciaEMAMP = recogerRankings[i][30]? recogerRankings[i][30]: "";
+            let tendenciaMACDMP = recogerRankings[i][31]? recogerRankings[i][31]: "";
+            let tendenciaAlligatorMP = recogerRankings[i][32]? recogerRankings[i][32]: "";
+            let fuerzaTendenciaADXMP = recogerRankings[i][33]? recogerRankings[i][33]: "";
+            let continuidadCambioADXMP = recogerRankings[i][34]? recogerRankings[i][34]: "";
+            let senalEMAMP = recogerRankings[i][35]? recogerRankings[i][35]: "";
+            let senalMACDMP = recogerRankings[i][36]? recogerRankings[i][36]: "";
+            let senalRSIMP = recogerRankings[i][37]? recogerRankings[i][37]: "";
+            let senalAlligatorMP = recogerRankings[i][38]? recogerRankings[i][38]: "";
+            let fechaUltimaSenalEMAMP = recogerRankings[i][39]? recogerRankings[i][39]: "";
+            let ultimaSenalEMAMP = recogerRankings[i][40]? recogerRankings[i][40]: "";
+            let fechaUltimaSenalMACDMP = recogerRankings[i][41]? recogerRankings[i][41]: "";
+            let ultimaSenalMACDMP = recogerRankings[i][42]? recogerRankings[i][42]: "";
+            let fechaUltimaSenalAlligatorMP = recogerRankings[i][43]? recogerRankings[i][43]: "";
+            let ultimaSenalAlligatorMP = recogerRankings[i][44]? recogerRankings[i][44]: "";
+            let tendenciaEMAMPNum = recogerRankings[i][45]? recogerRankings[i][45] : 0;
+            let tendenciaMACDMPNum = recogerRankings[i][46]? recogerRankings[i][46]: 0;
+            let tendenciaAlligatorMPNum = recogerRankings[i][47]? recogerRankings[i][47]: 0;
+            let fuerzaMP = recogerRankings[i][48]? recogerRankings[i][48]: 0;
+            let continuidadMP = recogerRankings[i][49]? recogerRankings[i][49]: 0;
+            let calificacionTendenciaMP = recogerRankings[i][50]? recogerRankings[i][50]: 0;
+            let senalEMAMPNum = recogerRankings[i][51]? recogerRankings[i][51]: 0;
+            let senalMACDMPNum = recogerRankings[i][52]? recogerRankings[i][52]: 0;
+            let senalRSIMPNum = recogerRankings[i][53]? recogerRankings[i][53]: 0;
+            let senalAlligatorMPNum = recogerRankings[i][54]? recogerRankings[i][54]: 0;
+            let calificacionIndicadoresTecnicosMP = recogerRankings[i][55]? recogerRankings[i][55]: 0;
+            let calificacionGlobalTendencia = recogerRankings[i][56]? recogerRankings[i][56]: 0;
+            let calificacionGlobalIndicadoresTecnicos = recogerRankings[i][57]? recogerRankings[i][57]: 0;
+            let calificacionTotalMP = recogerRankings[i][58]? recogerRankings[i][58]: 0;
+            let realProyLP = recogerRankings[i][59]? recogerRankings[i][59]: 0;
+            let forecastProyLP = recogerRankings[i][60]? recogerRankings[i][60]: 0;
+            let pesimistaProyLP = recogerRankings[i][61]? recogerRankings[i][61]: 0;
+            let optimistaProyLP = recogerRankings[i][62]? recogerRankings[i][62]: 0;
             let rankingName = new Ranking(
+                id,
                 idRango,
-                secuencia,
                 coinId,
                 tendenciaEMALP,
                 tendenciaMACDLP,
@@ -411,6 +411,7 @@ app.get('/', async function (solicitud, respuesta) {
                 senalRSILPNum,
                 senalAlligatorLPNum,
                 calificacionIndicadoresTecnicosLP,
+                calificacionTotalLP,
                 tendenciaEMAMP,
                 tendenciaMACDMP,
                 tendenciaAlligatorMP,
@@ -439,29 +440,41 @@ app.get('/', async function (solicitud, respuesta) {
                 calificacionIndicadoresTecnicosMP,
                 calificacionGlobalTendencia,
                 calificacionGlobalIndicadoresTecnicos,
-                calificacionProyeccionLP,
-                calificacionProyeccionMP,
-                calificacionSmartbandsLP,
-                calificacionSmartbandsMP,
-                calificacionGlobalProyecciones,
-                calificacionGlobalGeneral
+                calificacionTotalMP,
+                realProyLP,
+                forecastProyLP,
+                pesimistaProyLP,
+                optimistaProyLP
             );
             rankingName.push(rankings);
         }
-        await agregarPlanes(planes, process.env.PLANS_TABLE);
-        await agregarDatos(usuarios, process.env.USERS_TABLE);
-        await agregarDatos(oportsCripto, process.env.OPORTS_CRIPTO_TABLE);
-        await agregarDatos(idosIcos, process.env.IDOS_ICOS_TABLE);
         await agregarDatos(chartsProy, process.env.CHARTS_PROY_TABLE);
-        await agregarRankings(rankings, process.env.RANKINGS_TABLE);
+        await agregarDatos(idosIcos, process.env.IDOS_ICOS_TABLE);
+        await agregarDatos(oportsCripto, process.env.OPORTS_CRIPTO_TABLE);
+        await agregarPlanes(planes, process.env.PLANS_TABLE);
+        await agregarRanking(rankings, process.env.RANKINGS_TABLE);
+        await agregarUsuarios(usuarios, process.env.USERS_TABLE);
         await finalizarEjecucion();   
     } catch (err) {
         console.error(err);
     }
 
     async function agregarPlanes(datos, table) {
-        if (!datos || datos[0][0]=="#N/A") {
-            console.log("No se encontraron datos.");
+        if (!datos[0].plan) {
+            console.log("No se encontraron planes.");
+            return;
+        } else {
+            let sql = `INSERT INTO ${table} SET ? ON DUPLICATE KEY UPDATE ?`;
+            for (let n = 0; n < datos.length; n++) {
+                conexion.query(sql, [datos[n], datos[n]], function (err, result) {
+                    if (err) throw err;
+                });    
+            }
+        }
+    };
+    async function agregarUsuarios(datos, table) {
+        if (!datos[0].email) {
+            console.log("No se encontraron usuarios.");
             return;
         } else {
             let sql = `INSERT INTO ${table} SET ? ON DUPLICATE KEY UPDATE ?`;
@@ -473,46 +486,26 @@ app.get('/', async function (solicitud, respuesta) {
         }
     };
     async function agregarDatos(datos, table) {
-        if (!datos || datos[0][0]=="#N/A") {
+        if (!datos[0].nombre) {
             console.log("No se encontraron datos.");
             return;
         } else {
-            let sql1 = `DELETE FROM ${table}`;
-            let sql2 = `ALTER TABLE ${table} AUTO_INCREMENT = 1`;
-            conexion.query(sql1, function (err, result) {
-                if (err) throw err;
-                return;
-            });
-            conexion.query(sql2, function (err, result) {
-                if (err) throw err;
-                return;
-            });
-            let sql3 = `INSERT INTO ${table} SET ?`;
+            let sql = `INSERT INTO ${table} SET ? ON DUPLICATE KEY UPDATE ?`;
             for (let n = 0; n < datos.length; n++) {
-                conexion.query(sql3, [datos[n]], function (err, result) {
+                conexion.query(sql, [datos[n], datos[n]], function (err, result) {
                     if (err) throw err;
                 });    
             }
         }
     };
-    async function agregarRankings(datos, table) {
-        if (!datos || datos[0][0]=="#N/A") {
-            console.log("No se encontraron datos.");
+    async function agregarRanking(datos, table) {
+        if (!datos[0].coin_id) {
+            console.log("No se encontraron rankings.");
             return;
         } else {
-            let sql1 = `DELETE FROM ${table} WHERE id_rango=${datos[0].id_rango}`;
-            let sql2 = `ALTER TABLE ${table} AUTO_INCREMENT = 1`;
-            let sql3 = `INSERT INTO ${table} SET ?`;
-            conexion.query(sql1, function (err, result) {
-                if (err) throw err;
-                return;
-            });
-            conexion.query(sql2, function (err, result) {
-                if (err) throw err;
-                return;
-            });
+            let sql = `INSERT INTO ${table} SET ? ON DUPLICATE KEY UPDATE ?`;
             for (let n = 0; n < datos.length; n++) {
-                conexion.query(sql3, [datos[n]], function (err, result) {
+                conexion.query(sql, [datos[n], datos[n]], function (err, result) {
                     if (err) throw err;
                 });    
             }
