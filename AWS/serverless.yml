@@ -37,4 +37,4 @@ functions:
     maximumRetryAttempts: 0
     events:
       - eventBridge:
-          schedule: cron(0 17,23 ? * * *)
+          schedule: cron(5 6/4 ? * * *)
