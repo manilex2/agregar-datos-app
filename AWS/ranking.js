@@ -62,7 +62,28 @@ module.exports = class Ranking {
         realProyLP,
         forecastProyLP,
         pesimistaProyLP,
-        optimistaProyLP
+        optimistaProyLP,
+        realProySBLP,
+        forecastProySBLP,
+        pesimistaProySBLP,
+        optimistaProySBLP,
+        realProyMP,
+        forecastProyMP,
+        pesimistaProyMP,
+        optimistaProyMP,
+        realProySBMP,
+        forecastProySBMP,
+        pesimistaProySBMP,
+        optimistaProySBMP,
+        calificacionProyLP,
+        calificacionProyMP,
+        calificacionSmartBandsLP,
+        calificacionSmartBandsMP,
+        calificacionGlobalLPFinal,
+        calificacionGlobalMPFinal,
+        calificacionGlobalProyeccion,
+        calificacionGlobalGeneral,
+        fecha
     ) {
         this.id = id;
         this.idRango = idRango;
@@ -127,6 +148,27 @@ module.exports = class Ranking {
         this.forecastProyLP = forecastProyLP;
         this.pesimistaProyLP = pesimistaProyLP;
         this.optimistaProyLP = optimistaProyLP;
+        this.realProySBLP = realProySBLP;
+        this.forecastProySBLP = forecastProySBLP;
+        this.pesimistaProySBLP = pesimistaProySBLP;
+        this.optimistaProySBLP = optimistaProySBLP;
+        this.realProyMP = realProyMP;
+        this.forecastProyMP = forecastProyMP;
+        this.pesimistaProyMP = pesimistaProyMP;
+        this.optimistaProyMP = optimistaProyMP;
+        this.realProySBMP = realProySBMP;
+        this.forecastProySBMP = forecastProySBMP;
+        this.pesimistaProySBMP = pesimistaProySBMP;
+        this.optimistaProySBMP = optimistaProySBMP;
+        this.calificacionProyLP = calificacionProyLP;
+        this.calificacionProyMP = calificacionProyMP;
+        this.calificacionSmartBandsLP = calificacionSmartBandsLP;
+        this.calificacionSmartBandsMP = calificacionSmartBandsMP;
+        this.calificacionGlobalLPFinal = calificacionGlobalLPFinal;
+        this.calificacionGlobalMPFinal = calificacionGlobalMPFinal;
+        this.calificacionGlobalProyeccion = calificacionGlobalProyeccion;
+        this.calificacionGlobalGeneral = calificacionGlobalGeneral;
+        this.fecha = fecha;
     }
     push(rankings) {
         rankings.push({
@@ -192,7 +234,28 @@ module.exports = class Ranking {
             real_proyeccion_lp: this.realProyLP,
             forecast_proyeccion_lp: this.forecastProyLP,
             pesimista_proyeccion_lp: this.pesimistaProyLP,
-            optimista_proyeccion_lp: this.optimistaProyLP
+            optimista_proyeccion_lp: this.optimistaProyLP,
+            real_proyeccion_sb_lp: this.realProySBLP,
+            forecast_proyeccion_sb_lp: this.forecastProySBLP,
+            pesimista_proyeccion_sb_lp: this.pesimistaProySBLP,
+            optimista_proyeccion_sb_lp: this.optimistaProySBLP,
+            real_proyeccion_mp: this.realProyMP,
+            forecast_proyeccion_mp: this.forecastProyMP,
+            pesimista_proyeccion_mp: this.pesimistaProyMP,
+            optimista_proyeccion_mp: this.optimistaProyMP,
+            real_proyeccion_sb_mp: this.realProySBMP,
+            forecast_proyeccion_sb_mp: this.forecastProySBMP,
+            pesimista_proyeccion_sb_mp: this.pesimistaProySBMP,
+            optimista_proyeccion_sb_mp: this.optimistaProySBMP,
+            calificacion_proyeccion_lp: this.calificacionProyLP,
+            calificacion_proyeccion_mp: this.calificacionProyMP,
+            calificacion_smartbands_lp: this.calificacionSmartBandsLP,
+            calificacion_smartbands_mp: this.calificacionSmartBandsMP,
+            calificacion_global_lp_final: this.calificacionGlobalLPFinal,
+            calificacion_global_mp_final: this.calificacionGlobalMPFinal,
+            calificacion_global_proyeccion: this.calificacionGlobalProyeccion,
+            calificacion_global_general: this.calificacionGlobalGeneral,
+            fecha: this.fecha
         })
     }
 };

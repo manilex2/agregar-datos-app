@@ -71,6 +71,7 @@ module.exports = class IdoIco {
     }
     push(idosIcos) {
         idosIcos.push({
+            id: this.id,
             fecha: this.fecha,
             nombre: this.nombre,
             symbol: this.symbol,

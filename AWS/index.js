@@ -375,6 +375,27 @@ module.exports.handler = async function (event) {
                 let forecastProyLP = recogerRankings[i][60]? recogerRankings[i][60]: 0;
                 let pesimistaProyLP = recogerRankings[i][61]? recogerRankings[i][61]: 0;
                 let optimistaProyLP = recogerRankings[i][62]? recogerRankings[i][62]: 0;
+                let realProySBLP = recogerRankings[i][63]? recogerRankings[i][63]: 0;
+                let forecastProySBLP = recogerRankings[i][64]? recogerRankings[i][64]: 0;
+                let pesimistaProySBLP = recogerRankings[i][65]? recogerRankings[i][65]: 0;
+                let optimistaProySBLP = recogerRankings[i][66]? recogerRankings[i][66]: 0;
+                let realProyMP = recogerRankings[i][67]? recogerRankings[i][67]: 0;
+                let forecastProyMP = recogerRankings[i][68]? recogerRankings[i][68]: 0;
+                let pesimistaProyMP = recogerRankings[i][69]? recogerRankings[i][69]: 0;
+                let optimistaProyMP = recogerRankings[i][70]? recogerRankings[i][70]: 0;
+                let realProySBMP = recogerRankings[i][71]? recogerRankings[i][71]: 0;
+                let forecastProySBMP = recogerRankings[i][72]? recogerRankings[i][72]: 0;
+                let pesimistaProySBMP = recogerRankings[i][73]? recogerRankings[i][73]: 0;
+                let optimistaProySBMP = recogerRankings[i][74]? recogerRankings[i][74]: 0;
+                let calificacionProyLP = recogerRankings[i][75]? recogerRankings[i][75]: 0;
+                let calificacionProyMP = recogerRankings[i][76]? recogerRankings[i][76]: 0;
+                let calificacionSmartBandsLP = recogerRankings[i][77]? recogerRankings[i][77]: 0;
+                let calificacionSmartBandsMP = recogerRankings[i][78]? recogerRankings[i][78]: 0;
+                let calificacionGlobalLPFinal = recogerRankings[i][79]? recogerRankings[i][79]: 0;
+                let calificacionGlobalMPFinal = recogerRankings[i][80]? recogerRankings[i][80]: 0;
+                let calificacionGlobalProyeccion = recogerRankings[i][81]? recogerRankings[i][81]: 0;
+                let calificacionGlobalGeneral = recogerRankings[i][82]? recogerRankings[i][82]: 0;
+                let fecha = recogerRankings[i][83]? recogerRankings[i][83]: 0;
                 let rankingName = new Ranking(
                     id,
                     idRango,
@@ -438,7 +459,28 @@ module.exports.handler = async function (event) {
                     realProyLP,
                     forecastProyLP,
                     pesimistaProyLP,
-                    optimistaProyLP
+                    optimistaProyLP,
+                    realProySBLP,
+                    forecastProySBLP,
+                    pesimistaProySBLP,
+                    optimistaProySBLP,
+                    realProyMP,
+                    forecastProyMP,
+                    pesimistaProyMP,
+                    optimistaProyMP,
+                    realProySBMP,
+                    forecastProySBMP,
+                    pesimistaProySBMP,
+                    optimistaProySBMP,
+                    calificacionProyLP,
+                    calificacionProyMP,
+                    calificacionSmartBandsLP,
+                    calificacionSmartBandsMP,
+                    calificacionGlobalLPFinal,
+                    calificacionGlobalMPFinal,
+                    calificacionGlobalProyeccion,
+                    calificacionGlobalGeneral,
+                    fecha
                 );
                 rankingName.push(rankings);
             }
