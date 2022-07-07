@@ -32,7 +32,7 @@ functions:
   agregarDatos:
     handler: index.handler
     memorySize: 1024
-    description: LCF19 - Guarda los planes, rankings, usuarios, datos de oportunidades de criptos, IDOs e ICOs, Links de Graficos de Proyecciones en AWS RDS desde Google Spreadsheet.
+    description: LCF13 - Guarda los planes, rankings, usuarios, datos de oportunidades de criptos, IDOs e ICOs, Links de Graficos de Proyecciones en AWS RDS desde Google Spreadsheet.
     timeout: 720
     maximumRetryAttempts: 0
     events:
